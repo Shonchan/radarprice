@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Route::get( '/to/{hash}', 'UrlsController@toUrl');
 
+Route::middleware('sop')->get('sop-admin', function(){
+    ob_start();
+    require(public_path()."/sop/index.html");
+    return ob_get_clean();
+});
+
 //Route::get('/land', 'API\Products@newLand');
 
 
